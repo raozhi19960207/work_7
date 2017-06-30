@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lincanbin.carbonforum" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".application.CarbonForumApplication"
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/mybackupscheme"
+        android:fullBackupOnly="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".IndexActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lincanbin.carbonforum.IndexActivity" />
+        </activity>
+        <activity
+            android:name=".TopicActivity"
+            android:label="@string/title_activity_topic"
+            android:parentActivityName=".IndexActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lincanbin.carbonforum.IndexActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".IndexActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lincanbin.carbonforum.IndexActivity" />
+        </activity>
+
+        <service
+            android:name=".service.PushService"
+            android:exported="false" >
+        </service>
+
+        <activity android:name=".ReplyActivity" >
+        </activity>
+
+        <service
+            android:name=".service.ReplyService"
+            android:exported="false" >
+        </service>
+
+        <activity
+            android:name=".NotificationsActivity"
+            android:label="@string/title_activity_notifications"
+            android:parentActivityName=".IndexActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lincanbin.carbonforum.IndexActivity" />
+        </activity>
+        <activity android:name=".NewActivity" >
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName=".IndexActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lincanbin.carbonforum.IndexActivity" />
+        </activity>
+
+        <service
+            android:name=".service.NewService"
+            android:exported="false"></service>
+    </application>
+
+</manifest>
